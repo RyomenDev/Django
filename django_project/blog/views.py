@@ -8,7 +8,7 @@ from django.http import HttpResponse
 # def home(request):
 #     return render(request,'blog/temp.html')
 
-posts = [ # dictionary
+posts = [ # List of dictionary
     {
         'author': 'Tom',
         'title': 'Blog Post 1',
@@ -23,11 +23,23 @@ posts = [ # dictionary
     }
 ]
 
+# def home(request):
+#     context = { 
+#         'posts': posts # List of dictionary
+#     }
+#     context.update({'title': 'myTitle'}) # update 
+#     return render(request, 'blog/temp.html', context)
+
+# def about(request):
+#     return HttpResponse('<h1>Blog About</h1>')
+
 def home(request):
-    context = { 
-        'posts': posts # dictionary
+    context = {
+        'posts': posts
     }
-    return render(request, 'blog/temp.html', context)
+    return render(request, 'blog/home.html', context)
+
 
 def about(request):
-    return HttpResponse('<h1>Blog About</h1>')
+    return render(request, 'blog/about.html', {'title': 'About'})
+
