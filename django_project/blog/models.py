@@ -10,3 +10,5 @@ class Post(models.Model): # each class has own tablein database
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)# 1 to many
 
+    def __str__(self): # how to be printed out
+        return self.title
